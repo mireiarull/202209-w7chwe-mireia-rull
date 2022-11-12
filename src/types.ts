@@ -6,3 +6,10 @@ export interface UserCredentials {
 export interface UserRegisterCredentials extends UserCredentials {
   email: string;
 }
+
+export interface User {
+  id: string;
+  userName: string;
+  email: string;
+  token: string;
+}
