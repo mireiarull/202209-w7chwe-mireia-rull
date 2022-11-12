@@ -41,20 +41,4 @@ export const RegisterFormStyled = styled.form`
     background-color: #6b3fbe;
     padding: 10px;
   }
-
-  @media screen and (min-width: 890px) {
-    position: absolute;
-    right: 0;
-    top: 0;
-    justify-content: flex-end;
-    margin: 0;
-    padding: 0;
-    width: 76%;
-    label {
-      font-size: 1.3rem;
-    }
-    input {
-      width: 350px;
-    }
-  }
 `;
