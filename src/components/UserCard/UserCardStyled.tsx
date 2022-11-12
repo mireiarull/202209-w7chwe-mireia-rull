@@ -24,6 +24,14 @@ const UserCardStyled = styled.article`
     border-top-left-radius: 20px;
   }
 
+  span {
+    background-color: #6b3fbe;
+    border-radius: 20px;
+    padding: 4px 15px;
+    color: white;
+    font-weight: 400;
+  }
+
   @media screen and (min-width: 750px) {
     .user__inner {
       display: flex;

@@ -18,7 +18,7 @@ const MainPage = () => {
   return (
     <MainPageStyled className="container">
       <h1 className="logo">HI SPACE</h1>
-      <span>Showing {users.length} profiles</span>
+      <span className="count">Showing {users.length} profiles</span>
       <UserCardList />
     </MainPageStyled>
   );
