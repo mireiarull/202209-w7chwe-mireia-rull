@@ -13,19 +13,8 @@ const Button = ({
   content,
   action,
 }: ButtonProps): JSX.Element => {
-  if (text === "Delete" || text === "Edit") {
-    text = "";
-  }
-  let disabled = false;
-  if (text === "Edit") {
-    disabled = true;
-  }
   return (
-    <ButtonStyled
-      disabled={disabled}
-      className={`button ${classCss}`}
-      onClick={action}
-    >
+    <ButtonStyled className={`button ${classCss}`} onClick={action}>
       {text}
     </ButtonStyled>
   );

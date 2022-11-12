@@ -23,6 +23,7 @@ export const WelcomePageStyled = styled.div`
     align-items: center;
     width: 100%;
     padding: 30px;
+    gap: 30px;
 
     @media screen and (min-width: 890px) {
       width: 40%;

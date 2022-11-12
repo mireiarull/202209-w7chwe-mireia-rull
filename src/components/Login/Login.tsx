@@ -1,18 +1,19 @@
 import { useState } from "react";
-import { UserRegisterCredentials } from "../../types";
+import { UserCredentials } from "../../types";
+import { useNavigate } from "react-router-dom";
 import Button from "../Button/Button";
 import useUser from "../../hooks/useUser";
-import { RegisterFormStyled } from "./RegisterFormStyled";
-import { useNavigate } from "react-router";
+import { RegisterFormStyled } from "../Register/RegisterFormStyled";
+import { useAppSelector } from "../../redux/hooks";
 
-const RegisterForm = (): JSX.Element => {
-  const { registerUser } = useUser();
+const LoginForm = (): JSX.Element => {
+  const { loginUser } = useUser();
   const navigate = useNavigate();
+  const loggedUser = useAppSelector(({ users }) => users.isLogged);
 
   const intialFormData = {
     username: "",
     password: "",
-    email: "",
   };
 
   const [formData, setFormData] = useState(intialFormData);
@@ -28,17 +29,19 @@ const RegisterForm = (): JSX.Element => {
     });
   };
 
-  const handleSubmit = (event: React.SyntheticEvent) => {
+  const handleSubmit = async (event: React.SyntheticEvent) => {
     event.preventDefault();
 
-    const formDataToSubmit: UserRegisterCredentials = {
+    const formDataToSubmit: UserCredentials = {
       username: formData.username,
       password: formData.password,
-      email: formData.email,
     };
 
-    registerUser(formDataToSubmit);
-    navigate("/main");
+    loginUser(formDataToSubmit);
+
+    if (loggedUser) {
+      navigate("/main");
+    }
   };
 
   return (
@@ -70,23 +73,10 @@ const RegisterForm = (): JSX.Element => {
             required
           />
         </div>
-        <div className="form__item">
-          <label className="form__label" htmlFor="email">
-            E-mail
-          </label>
-          <input
-            type="text"
-            name="email"
-            id="email"
-            onChange={handleFormChange}
-            autoComplete="off"
-            required
-          />
-        </div>
-        <Button text="Sign up" action={() => {}}></Button>
+        <Button text="Log in" action={() => {}}></Button>
       </RegisterFormStyled>
     </>
   );
 };
 
-export default RegisterForm;
+export default LoginForm;
