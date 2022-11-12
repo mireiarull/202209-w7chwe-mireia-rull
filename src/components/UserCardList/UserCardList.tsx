@@ -1,5 +1,5 @@
 import { useAppSelector } from "../../redux/hooks";
-import UserCard from "../UserCard/PatatasCard";
+import UserCard from "../UserCard/UserCard";
 import UserCardListStyled from "./UserCardListStyled";
 
 const UserCardList = (): JSX.Element => {
