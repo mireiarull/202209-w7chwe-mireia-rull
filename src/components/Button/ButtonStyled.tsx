@@ -9,6 +9,7 @@ const ButtonStyled = styled.button`
   margin: 20px;
   font-size: 1.25rem;
   font-weight: 600;
+  font-family: inherit;
   &:hover,
   &:focus {
     cursor: pointer;
