@@ -18,4 +18,20 @@ describe("Given a Button component", () => {
       expect(buttonAction).toHaveBeenCalled();
     });
   });
+
+  describe("and it receives an action", () => {
+    test("Then it the action should be invoked when the button is clicked", async () => {
+      const buttonText = "send";
+      const buttonAction = jest.fn();
+
+      render(<Button text={buttonText} action={buttonAction} />);
+      const renderedButton = screen.queryByRole("button", {
+        name: buttonText,
+      });
+
+      await userEvent.click(renderedButton!);
+
+      expect(buttonAction).toHaveBeenCalled();
+    });
+  });
 });
