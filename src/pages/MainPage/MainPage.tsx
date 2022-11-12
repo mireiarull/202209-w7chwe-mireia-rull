@@ -13,7 +13,7 @@ const MainPage = () => {
   useEffect(() => {
     getToken();
     loadAllUsersApi();
-  });
+  }, [getToken, loadAllUsersApi]);
 
   return (
     <MainPageStyled className="container">
