@@ -1,25 +1,24 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { User } from "../../types";
-import { UserState } from "./types";
+import { UserStructure } from "../../types";
+import { UsersState } from "./types";
 
-const userInitialState: UserState = {
-  id: "",
-  username: "",
-  email: "",
-  isLogged: false,
-  token: "",
+const usersInitialState: UsersState = {
+  list: [],
 };
 
-const userSlice = createSlice({
+const usersSlice = createSlice({
   name: "users",
-  initialState: userInitialState,
+  initialState: usersInitialState,
   reducers: {
-    loginUser: (previousUser, action: PayloadAction<User>) => ({
-      ...action.payload,
-      isLogged: true,
+    loadAllUsers: (
+      currentUsersState,
+      action: PayloadAction<UserStructure[]>
+    ) => ({
+      ...currentUsersState,
+      list: [...action.payload],
     }),
   },
 });
 
-export const userReducer = userSlice.reducer;
-export const { loginUser: loginUserActionCreator } = userSlice.actions;
+export const usersReducer = usersSlice.reducer;
+export const { loadAllUsers: loadAllUsersActionCreator } = usersSlice.actions;
