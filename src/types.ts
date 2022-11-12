@@ -26,4 +26,5 @@ export interface UserStructure {
   username: string;
   name: string;
   job: string;
+  id: string;
 }
