@@ -1,4 +1,6 @@
 import React from "react";
+import "@fontsource/poppins";
+import "@fontsource/fredoka-one";
 import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";

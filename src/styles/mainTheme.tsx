@@ -5,5 +5,7 @@ const mainTheme = {
   backgroundColor: "#fcfcfc",
   featuredColor: "#6b3fbe",
   paddingShort: "20px",
+  primaryFont: "'Poppins', sans-serif",
+  secondaryFont: "'Fredoka One', sans-serif",
 };
 export default mainTheme;

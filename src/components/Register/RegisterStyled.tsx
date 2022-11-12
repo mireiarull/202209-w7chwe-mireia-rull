@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const RegisterStyled = styled.form`
   display: flex;
-  color: ${(props) => props.theme.backgroundColor};
+  color: ${(props) => props.theme.colorPrimary};
   justify-content: center;
   flex-direction: column;
   font-size: 1.5rem;
@@ -11,10 +11,11 @@ export const RegisterStyled = styled.form`
   padding: 15px;
   margin: 20px auto;
   font-weight: 600;
+  font-family: ${(props) => props.theme.primaryFont};
 
   input {
     border: none;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid black;
     color: inherit;
     font-weight: 400;
     padding: 0 10px;
@@ -37,7 +38,8 @@ export const RegisterStyled = styled.form`
 
   button {
     width: 100%;
-    background-color: #877e99;
+    background-color: #6b3fbe;
+    padding: 10px;
   }
 
   @media screen and (min-width: 890px) {
