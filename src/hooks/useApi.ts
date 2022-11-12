@@ -9,7 +9,7 @@ const useApi = () => {
 
   const token = localStorage.getItem("token");
 
-  const loadAllUsers = useCallback(async () => {
+  const loadAllUsersApi = useCallback(async () => {
     const response = await fetch(`${url}/users/list`, {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -20,7 +20,7 @@ const useApi = () => {
   }, [dispatch, token]);
 
   return {
-    loadAllUsers,
+    loadAllUsersApi,
   };
 };
 

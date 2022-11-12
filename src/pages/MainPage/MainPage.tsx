@@ -4,11 +4,11 @@ import useToken from "../../hooks/useToken";
 
 const MainPage = () => {
   const { getToken } = useToken();
-  const { loadAllUsers } = useApi();
+  const { loadAllUsersApi } = useApi();
 
   useEffect(() => {
-    loadAllUsers();
     getToken();
+    loadAllUsersApi();
   });
 
   return (
