@@ -1,12 +1,13 @@
-import Button from "../components/Button/Button";
+import RegisterForm from "../components/Register/Register";
+import { RegisterPageStyled } from "./RegisterPageStyled";
 
 const RegisterPage = () => {
   return (
-    <>
+    <RegisterPageStyled>
       <main className="container">
-        <Button text="Hola" />
+        <RegisterForm />
       </main>
-    </>
+    </RegisterPageStyled>
   );
 };
 
