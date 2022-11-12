@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const RegisterStyled = styled.form`
+export const RegisterFormStyled = styled.form`
   display: flex;
   color: ${(props) => props.theme.colorPrimary};
   justify-content: center;

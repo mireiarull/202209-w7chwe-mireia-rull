@@ -2,7 +2,7 @@ import { useState } from "react";
 import { UserRegisterCredentials } from "../../types";
 import Button from "../Button/Button";
 import useUser from "../../hooks/useUser";
-import { RegisterStyled } from "./RegisterStyled";
+import { RegisterFormStyled } from "./RegisterFormStyled";
 
 const RegisterForm = (): JSX.Element => {
   const { registerUser } = useUser();
@@ -40,7 +40,7 @@ const RegisterForm = (): JSX.Element => {
 
   return (
     <>
-      <RegisterStyled onSubmit={handleSubmit}>
+      <RegisterFormStyled onSubmit={handleSubmit}>
         <div className="form__item">
           <label className="form__label" htmlFor="username">
             Username
@@ -81,7 +81,7 @@ const RegisterForm = (): JSX.Element => {
           />
         </div>
         <Button text="Sign up" action={() => {}}></Button>
-      </RegisterStyled>
+      </RegisterFormStyled>
     </>
   );
 };

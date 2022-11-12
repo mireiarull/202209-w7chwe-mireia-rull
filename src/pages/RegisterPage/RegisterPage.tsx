@@ -1,4 +1,4 @@
-import RegisterForm from "../../components/Register/Register";
+import RegisterForm from "../../components/Register/RegisterForm";
 import { RegisterPageStyled } from "./RegisterPageStyled";
 
 const RegisterPage = () => {
