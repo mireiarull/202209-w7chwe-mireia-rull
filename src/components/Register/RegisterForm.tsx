@@ -3,9 +3,11 @@ import { UserRegisterCredentials } from "../../types";
 import Button from "../Button/Button";
 import useUser from "../../hooks/useUser";
 import { RegisterFormStyled } from "./RegisterFormStyled";
+import { useNavigate } from "react-router";
 
 const RegisterForm = (): JSX.Element => {
   const { registerUser } = useUser();
+  const navigate = useNavigate();
 
   const intialFormData = {
     username: "",
@@ -36,6 +38,7 @@ const RegisterForm = (): JSX.Element => {
     };
 
     registerUser(formDataToSubmit);
+    navigate("/main");
   };
 
   return (
