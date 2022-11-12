@@ -1,18 +1,27 @@
-import React from 'react';
-import { createRoot } from 'react-dom/client';
-import { Provider } from 'react-redux';
-import { store } from './app/store';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import './index.css';
+import React from "react";
+import "@fontsource/poppins";
+import "@fontsource/fredoka-one";
+import { createRoot } from "react-dom/client";
+import { Provider } from "react-redux";
+import { store } from "./redux/store";
+import reportWebVitals from "./reportWebVitals";
+import { ThemeProvider } from "styled-components";
+import "./index.css";
+import App from "./components/App/App";
+import mainTheme from "./styles/mainTheme";
+import { BrowserRouter } from "react-router-dom";
 
-const container = document.getElementById('root')!;
+const container = document.getElementById("root")!;
 const root = createRoot(container);
 
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <ThemeProvider theme={mainTheme}>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </ThemeProvider>
     </Provider>
   </React.StrictMode>
 );
