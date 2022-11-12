@@ -1,4 +1,5 @@
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
+import { renderWithProviders } from "../../test-utils/renderWithProviders";
 import RegisterPage from "./RegisterPage";
 
 describe("Given a register page", () => {
@@ -8,7 +9,7 @@ describe("Given a register page", () => {
       const expectedUsernameLabel = "Username";
       const expectedSignUpButtonText = "Sign up";
 
-      render(<RegisterPage />);
+      renderWithProviders(<RegisterPage />);
 
       const logo = screen.queryByRole("heading", {
         name: expectedLogoText,

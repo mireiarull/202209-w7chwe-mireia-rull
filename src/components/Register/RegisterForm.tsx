@@ -30,7 +30,7 @@ const RegisterForm = (): JSX.Element => {
     event.preventDefault();
 
     const formDataToSubmit: UserRegisterCredentials = {
-      userName: formData.username,
+      username: formData.username,
       password: formData.password,
       email: formData.email,
     };

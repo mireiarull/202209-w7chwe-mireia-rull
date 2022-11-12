@@ -7,7 +7,9 @@ const WelcomePage = () => {
     <WelcomePageStyled>
       <h1>HI SPACE</h1>
       <div className="welcome-navigation">
-        <Button text="Log in" classCss="welcome-button" />
+        <Link to="/login">
+          <Button text="Log in" classCss="welcome-button" />
+        </Link>
         <Link to="/register">
           <Button text="Register" classCss="welcome-button" />
         </Link>

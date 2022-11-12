@@ -4,7 +4,7 @@ import { UserState } from "./types";
 
 const userInitialState: UserState = {
   id: "",
-  userName: "",
+  username: "",
   email: "",
   isLogged: false,
   token: "",

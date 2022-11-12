@@ -1,5 +1,5 @@
 export interface UserCredentials {
-  userName: string;
+  username: string;
   password: string;
 }
 
@@ -9,13 +9,13 @@ export interface UserRegisterCredentials extends UserCredentials {
 
 export interface User {
   id: string;
-  userName: string;
+  username: string;
   email: string;
   token: string;
 }
 
 export interface JwtPayloadCustom {
   id: string;
-  userName: string;
+  username: string;
   email: string;
 }
