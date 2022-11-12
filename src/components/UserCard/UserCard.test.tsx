@@ -1,7 +1,7 @@
 import { screen } from "@testing-library/react";
 import { renderWithProviders } from "../../test-utils/renderWithProviders";
 import { UserStructure } from "../../types";
-import UserCard from "./UserCard";
+import UserCard from "./PatatasCard";
 
 describe("Given a UserCard component", () => {
   describe("When it's rendered with the received user with name 'Mireia'", () => {
