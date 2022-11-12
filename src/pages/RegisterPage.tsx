@@ -1,7 +1,11 @@
+import Button from "../components/Button/Button";
+
 const RegisterPage = () => {
   return (
     <>
-      <main className="container"></main>
+      <main className="container">
+        <Button text="Hola" />
+      </main>
     </>
   );
 };
