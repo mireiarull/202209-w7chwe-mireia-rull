@@ -5,7 +5,7 @@ export const RegisterFormStyled = styled.form`
   color: ${(props) => props.theme.colorPrimary};
   justify-content: center;
   flex-direction: column;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   align-items: center;
   min-width: 300px;
   padding: 15px;

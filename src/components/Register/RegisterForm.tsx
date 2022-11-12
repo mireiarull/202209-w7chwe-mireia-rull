@@ -13,6 +13,8 @@ const RegisterForm = (): JSX.Element => {
     username: "",
     password: "",
     email: "",
+    name: "",
+    job: "",
   };
 
   const [formData, setFormData] = useState(intialFormData);
@@ -35,6 +37,8 @@ const RegisterForm = (): JSX.Element => {
       username: formData.username,
       password: formData.password,
       email: formData.email,
+      name: formData.name,
+      job: formData.job,
     };
 
     registerUser(formDataToSubmit);
@@ -71,6 +75,19 @@ const RegisterForm = (): JSX.Element => {
           />
         </div>
         <div className="form__item">
+          <label className="form__label" htmlFor="name">
+            Name
+          </label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            onChange={handleFormChange}
+            autoComplete="off"
+            required
+          />
+        </div>
+        <div className="form__item">
           <label className="form__label" htmlFor="email">
             E-mail
           </label>
@@ -78,6 +95,19 @@ const RegisterForm = (): JSX.Element => {
             type="text"
             name="email"
             id="email"
+            onChange={handleFormChange}
+            autoComplete="off"
+            required
+          />
+        </div>
+        <div className="form__item">
+          <label className="form__label" htmlFor="job">
+            Profession
+          </label>
+          <input
+            type="text"
+            name="job"
+            id="job"
             onChange={handleFormChange}
             autoComplete="off"
             required
