@@ -9,7 +9,7 @@ import { useAppSelector } from "../../redux/hooks";
 const LoginForm = (): JSX.Element => {
   const { loginUser } = useUser();
   const navigate = useNavigate();
-  const loggedUser = useAppSelector(({ users }) => users.isLogged);
+  const loggedUser = useAppSelector(({ user }) => user.isLogged);
 
   const intialFormData = {
     username: "",

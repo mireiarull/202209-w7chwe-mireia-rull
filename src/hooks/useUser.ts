@@ -1,4 +1,4 @@
-import { loginUserActionCreator } from "../redux/features/usersSlice";
+import { loginUserActionCreator } from "../redux/features/userSlice";
 import { useAppDispatch } from "../redux/hooks";
 import { UserCredentials, UserRegisterCredentials } from "../types";
 import decodeToken from "../utils/decodeToken";
@@ -11,11 +11,7 @@ const useUser = () => {
   const registerUser = async (userData: UserRegisterCredentials) => {
     await fetch(`${url}/users/register`, {
       method: "POST",
-      body: JSON.stringify({
-        username: userData.username,
-        password: userData.password,
-        email: userData.email,
-      }),
+      body: JSON.stringify(userData),
       headers: {
         "Content-type": "application/json; charset=UTF-8",
       },
