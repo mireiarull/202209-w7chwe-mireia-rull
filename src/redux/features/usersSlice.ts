@@ -17,8 +17,15 @@ const usersSlice = createSlice({
       ...currentUsersState,
       list: [...action.payload],
     }),
+    loadOneUser: (currentUsersState, action: PayloadAction<UserStructure>) => ({
+      ...currentUsersState,
+      list: [action.payload],
+    }),
   },
 });
 
 export const usersReducer = usersSlice.reducer;
-export const { loadAllUsers: loadAllUsersActionCreator } = usersSlice.actions;
+export const {
+  loadAllUsers: loadAllUsersActionCreator,
+  loadOneUser: loadOneUserActionCreator,
+} = usersSlice.actions;
