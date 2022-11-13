@@ -49,7 +49,6 @@ const useUser = () => {
         })
       );
       localStorage.setItem("token", token);
-      dispatch(openModalActionCreator("Welcome!"));
     } catch {
       dispatch(openModalActionCreator("Something went wrong!"));
     }
