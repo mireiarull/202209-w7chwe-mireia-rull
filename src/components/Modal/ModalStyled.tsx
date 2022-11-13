@@ -25,6 +25,7 @@ export const ModalStyled = styled.div`
   justify-content: center;
   text-align: center;
   align-items: center;
+  z-index: 10;
 
   @media screen and (min-width: 600px) {
     width: 40vw;

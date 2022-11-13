@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
+import useApi from "../../hooks/useApi";
 import { useAppSelector } from "../../redux/hooks";
-import { UserStructure } from "../../types";
+import { Relation, UserStructure } from "../../types";
 import Button from "../Button/Button";
 import UserDetailsStyled from "./UserDetailsStyled";
 
@@ -9,9 +10,20 @@ interface UserCardProps {
 }
 
 const UserDetails = ({
-  user: { job, name, username, id },
+  user: { job, name, id, interest, residence, relation },
 }: UserCardProps): JSX.Element => {
   const loggedUserId = useAppSelector(({ user }) => user.id);
+
+  const { addRelationship } = useApi();
+
+  const handleClick = (relation: "friends" | "enemies") => {
+    const newRelation: Relation = {
+      user1: loggedUserId,
+      user2: id,
+      relation: relation,
+    };
+    addRelationship(newRelation);
+  };
 
   return (
     <UserDetailsStyled className="user">
@@ -30,11 +42,31 @@ const UserDetails = ({
       <Link to={`/profile/${id}`}>
         <h3 className="user__name">{name}</h3>
       </Link>
-      <span className="user__relationship">Stranger</span>
-      <span>{job}</span>
+      {relation === "friends" && (
+        <span className="user__relationship">Friend</span>
+      )}
+      {relation === "enemies" && (
+        <span className="user__relationship">Enemies</span>
+      )}
+      {!relation && <span className="user__relationship">Stranger</span>}
+      <span>Job: {job}</span>
+      <span>Location: {residence}</span>
+      <span>Hobbies: {interest}</span>
       <div className="user__buttons">
-        <Button text="Add to friend" classCss="user__buttons-friend" />
-        <Button text="Add to enemy" classCss="user__buttons-enemy" />
+        {loggedUserId !== id && (
+          <Button
+            text="Add to friend"
+            classCss="user__buttons-friend"
+            action={() => handleClick("friends")}
+          />
+        )}
+        {loggedUserId !== id && (
+          <Button
+            text="Add to enemy"
+            classCss="user__buttons-enemy"
+            action={() => handleClick("enemies")}
+          />
+        )}
       </div>
     </UserDetailsStyled>
   );

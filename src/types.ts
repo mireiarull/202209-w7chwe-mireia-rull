@@ -32,4 +32,11 @@ export interface UserStructure {
   image?: string;
   password: string;
   email: string;
+  relation?: string;
+}
+
+export interface Relation {
+  user1: string;
+  user2: string;
+  relation: string;
 }

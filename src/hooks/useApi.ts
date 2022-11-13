@@ -1,11 +1,12 @@
 import { useCallback } from "react";
 import {
+  addRelationshipActionCreator,
   loadAllUsersActionCreator,
   loadOneUserActionCreator,
   updateOneUserActionCreator,
 } from "../redux/features/usersSlice";
 import { useAppDispatch } from "../redux/hooks";
-import { UserStructure } from "../types";
+import { Relation, UserStructure } from "../types";
 
 const url = process.env.REACT_APP_API_SOCIAL!;
 
@@ -55,10 +56,34 @@ const useApi = () => {
     [dispatch, token]
   );
 
+  const addRelationship = useCallback(
+    async (relation: Relation) => {
+      try {
+        const response = await fetch(`${url}/users/add-relationship`, {
+          method: "POST",
+          body: JSON.stringify(relation),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        });
+
+        if (!response.ok) {
+          throw new Error();
+        }
+
+        dispatch(addRelationshipActionCreator(relation));
+      } catch (error: unknown) {
+        throw new Error(`There was an error: ${(error as Error).message}`);
+      }
+    },
+    [dispatch]
+  );
+
   return {
     loadAllUsersApi,
     loadUserByIdApi,
     updateMyUserApi,
+    addRelationship,
   };
 };
 

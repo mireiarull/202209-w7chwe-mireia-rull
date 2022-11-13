@@ -1,4 +1,4 @@
-import { User, UserStructure } from "../../types";
+import { Relation, User, UserStructure } from "../../types";
 
 export interface UserState extends User {
   isLogged: boolean;
@@ -11,4 +11,8 @@ export interface UsersState {
 
 export interface UiState {
   modal: string;
+}
+
+export interface RelationsState {
+  list: Relation[];
 }

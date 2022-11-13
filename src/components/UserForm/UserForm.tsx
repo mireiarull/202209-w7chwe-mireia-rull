@@ -54,7 +54,7 @@ const UserForm = (): JSX.Element => {
       image: formData.image,
       id: myUserId!,
     };
-
+    console.log(formDataToSubmit);
     updateMyUserApi(formDataToSubmit, myUserId!);
     navigate("/home");
   };
@@ -177,7 +177,7 @@ const UserForm = (): JSX.Element => {
               </div>
             </div>
           </div>
-          <Button text="Sign up" action={() => {}}></Button>
+          <Button text="Update" action={() => {}}></Button>
         </UserFormStyled>
       )}
     </>
