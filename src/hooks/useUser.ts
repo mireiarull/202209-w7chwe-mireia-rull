@@ -1,3 +1,4 @@
+import { openModalActionCreator } from "../redux/features/uiSlice";
 import { loginUserActionCreator } from "../redux/features/userSlice";
 import { useAppDispatch } from "../redux/hooks";
 import { UserCredentials, UserRegisterCredentials } from "../types";
@@ -9,13 +10,18 @@ const useUser = () => {
   const url = process.env.REACT_APP_API_SOCIAL!;
 
   const registerUser = async (userData: UserRegisterCredentials) => {
-    await fetch(`${url}/users/register`, {
-      method: "POST",
-      body: JSON.stringify(userData),
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
-    });
+    try {
+      await fetch(`${url}/users/register`, {
+        method: "POST",
+        body: JSON.stringify(userData),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      });
+      dispatch(openModalActionCreator("Welcome!"));
+    } catch {
+      dispatch(openModalActionCreator("Something went wrong!"));
+    }
   };
 
   const loginUser = async (userData: UserCredentials) => {
@@ -43,7 +49,10 @@ const useUser = () => {
         })
       );
       localStorage.setItem("token", token);
-    } catch {}
+      dispatch(openModalActionCreator("Welcome!"));
+    } catch {
+      dispatch(openModalActionCreator("Something went wrong!"));
+    }
   };
   return { registerUser, loginUser };
 };
