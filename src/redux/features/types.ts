@@ -7,3 +7,7 @@ export interface UserState extends User {
 export interface UsersState {
   list: UserStructure[];
 }
+
+export interface UiState {
+  modal: string;
+}
