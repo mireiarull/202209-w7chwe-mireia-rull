@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { UserStructure } from "../../types";
+import { Relation, UserStructure } from "../../types";
 import { UsersState } from "./types";
 
 const usersInitialState: UsersState = {
@@ -41,6 +41,18 @@ const usersSlice = createSlice({
         }
       }),
     }),
+    addRelationship: (
+      currentUsersState,
+      action: PayloadAction<Relation>
+    ): UsersState => {
+      return {
+        ...currentUsersState,
+        profile: {
+          ...currentUsersState.profile!,
+          relation: action.payload.relation,
+        },
+      };
+    },
   },
 });
 
@@ -49,4 +61,5 @@ export const {
   loadAllUsers: loadAllUsersActionCreator,
   loadOneUser: loadOneUserActionCreator,
   updateOneUser: updateOneUserActionCreator,
+  addRelationship: addRelationshipActionCreator,
 } = usersSlice.actions;
