@@ -4,6 +4,7 @@ import { UsersState } from "./types";
 
 const usersInitialState: UsersState = {
   list: [],
+  profile: null,
 };
 
 const usersSlice = createSlice({
@@ -19,7 +20,7 @@ const usersSlice = createSlice({
     }),
     loadOneUser: (currentUsersState, action: PayloadAction<UserStructure>) => ({
       ...currentUsersState,
-      list: [action.payload],
+      profile: action.payload,
     }),
   },
 });

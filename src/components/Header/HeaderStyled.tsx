@@ -9,10 +9,12 @@ const HeaderStyled = styled.header`
   border-bottom: 2.5px solid ${(props) => props.theme.featuredColor};
   margin-bottom: 10px;
 
-  h1 {
+  .logo {
     font-family: ${(props) => props.theme.secondaryFont};
     letter-spacing: 3px;
-    font-size: 3rem;
+    font-size: 2.5rem;
+    color: ${(props) => props.theme.featuredColor};
+    margin: 0 auto;
   }
 
   .header__nav {

@@ -6,7 +6,6 @@ const UserCardStyled = styled.article`
   align-items: center;
   background-color: #ffffff;
   height: 350px;
-  width: 95%;
   margin: 20px 0;
   border-radius: 20px;
   gap: 10px;

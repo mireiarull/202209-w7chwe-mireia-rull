@@ -4,12 +4,10 @@ import { useNavigate } from "react-router-dom";
 import Button from "../Button/Button";
 import useUser from "../../hooks/useUser";
 import { RegisterFormStyled } from "../Register/RegisterFormStyled";
-import { useAppSelector } from "../../redux/hooks";
 
 const LoginForm = (): JSX.Element => {
   const { loginUser } = useUser();
   const navigate = useNavigate();
-  const loggedUser = useAppSelector(({ user }) => user.isLogged);
 
   const intialFormData = {
     username: "",
@@ -37,7 +35,7 @@ const LoginForm = (): JSX.Element => {
       password: formData.password,
     };
 
-    loginUser(formDataToSubmit);
+    const loggedUser = await loginUser(formDataToSubmit);
 
     if (loggedUser) {
       navigate("/home");
