@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useAppSelector } from "../../redux/hooks";
 import { UserStructure } from "../../types";
 import Button from "../Button/Button";
 import UserDetailsStyled from "./UserDetailsStyled";
@@ -10,8 +11,15 @@ interface UserCardProps {
 const UserDetails = ({
   user: { job, name, username, id },
 }: UserCardProps): JSX.Element => {
+  const loggedUserId = useAppSelector(({ user }) => user.id);
+
   return (
     <UserDetailsStyled className="user">
+      {loggedUserId === id && (
+        <Link to={`/update/${id}`}>
+          <Button text="✏️" classCss="user__buttons-edit" />
+        </Link>
+      )}
       <img
         src={
           "https://images.unsplash.com/photo-1628563694622-5a76957fd09c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8aW5zdGFncmFtJTIwcHJvZmlsZXxlbnwwfHwwfHw%3D&w=1000&q=80"

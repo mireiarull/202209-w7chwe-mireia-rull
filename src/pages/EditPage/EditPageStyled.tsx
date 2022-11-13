@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
-const MainPageStyled = styled.main`
+const EditPageStyled = styled.main`
   background-color: #efefef;
-  height: 100vh;
 
   .count {
     color: #000000;
@@ -10,4 +9,4 @@ const MainPageStyled = styled.main`
   }
 `;
 
-export default MainPageStyled;
+export default EditPageStyled;

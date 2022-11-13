@@ -30,7 +30,7 @@ const RegisterForm = (): JSX.Element => {
     });
   };
 
-  const handleSubmit = (event: React.SyntheticEvent) => {
+  const handleSubmit = async (event: React.SyntheticEvent) => {
     event.preventDefault();
 
     const formDataToSubmit: UserRegisterCredentials = {
@@ -41,8 +41,10 @@ const RegisterForm = (): JSX.Element => {
       job: formData.job,
     };
 
-    registerUser(formDataToSubmit);
-    navigate("/home");
+    const userRegistered = await registerUser(formDataToSubmit);
+    if (userRegistered) {
+      navigate("/home");
+    }
   };
 
   return (

@@ -8,7 +8,6 @@ const UserDetailsStyled = styled.article`
   height: 500px;
   margin: 20px 0;
   border-radius: 20px;
-  gap: 10px;
   margin: 20px 20px;
   position: relative;
 
@@ -76,6 +75,24 @@ const UserDetailsStyled = styled.article`
 
     &-enemy {
       background-color: #4f2ad0;
+    }
+  }
+
+  .user__buttons-edit {
+    position: absolute;
+    right: 0px;
+    background-color: white;
+    padding: 5px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.267);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+
+    &:hover {
+      background-color: #6b3fbe;
+      box-shadow: 0px 15px 20px #6b3fbe;
+      color: #fff;
+      transform: translateY(-7px);
     }
   }
 `;
