@@ -4,6 +4,7 @@ import RegisterPage from "../../pages/RegisterPage/RegisterPage";
 import WelcomePage from "../../pages/WelcomePage/WelcomePage";
 import AppStyled from "./AppStyled";
 import MainPage from "../../pages/MainPage/MainPage";
+import ProfilePage from "../../pages/ProfilePage/ProfilePage";
 
 const App = () => {
   return (
@@ -13,7 +14,8 @@ const App = () => {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/home" element={<MainPage />} />
-        <Route path="/my-profile" element={<MainPage />} />
+        {/* <Route path="/my-profile" element={<todo />} /> */}
+        <Route path="/profile/:id" element={<ProfilePage />} />
       </Routes>
     </AppStyled>
   );

@@ -1,15 +1,17 @@
 import styled from "styled-components";
 
-const UserCardStyled = styled.article`
+const UserDetailsStyled = styled.article`
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #ffffff;
-  height: 350px;
+  height: 500px;
   margin: 20px 0;
   border-radius: 20px;
   gap: 10px;
+  margin: 20px 20px;
   position: relative;
+
   .user__name {
     font-size: 1.6rem;
     margin-top: 10px;
@@ -43,14 +45,9 @@ const UserCardStyled = styled.article`
         width: 150px;
       }
     }
-  }
-  @media screen and (min-width: 1100px) {
-    .user__inner {
-      img {
-        width: 200px;
-        height: 200px;
-      }
-    }
+    width: 50vw;
+    margin: 30px auto;
+    height: 70vh;
   }
 
   .user__info {
@@ -62,6 +59,25 @@ const UserCardStyled = styled.article`
       }
     }
   }
+
+  .user__buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    button {
+      font-size: 1rem;
+      font-weight: 400;
+      padding: 5px 10px;
+    }
+
+    &-friend {
+      background-color: #d544ad;
+    }
+
+    &-enemy {
+      background-color: #4f2ad0;
+    }
+  }
 `;
 
-export default UserCardStyled;
+export default UserDetailsStyled;

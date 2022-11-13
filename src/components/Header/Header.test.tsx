@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import Header from "./Header";
 import { BrowserRouter } from "react-router-dom";
+import { renderWithProviders } from "../../test-utils/renderWithProviders";
 
 describe("Given a Header component", () => {
   describe("When it is rendered", () => {
@@ -9,11 +10,7 @@ describe("Given a Header component", () => {
       const navigationHome = "HOME";
       const navigationProfile = "MY PROFILE";
 
-      render(
-        <BrowserRouter>
-          <Header />
-        </BrowserRouter>
-      );
+      renderWithProviders(<Header />);
 
       const renderedHeading = screen.queryByRole("heading", {
         name: headingText,

@@ -1,16 +1,17 @@
 import { Link } from "react-router-dom";
 import { UserStructure } from "../../types";
-import UserCardStyled from "./UserCardStyled";
+import Button from "../Button/Button";
+import UserDetailsStyled from "./UserDetailsStyled";
 
 interface UserCardProps {
   user: UserStructure;
 }
 
-const UserCard = ({
+const UserDetails = ({
   user: { job, name, username, id },
 }: UserCardProps): JSX.Element => {
   return (
-    <UserCardStyled className="user">
+    <UserDetailsStyled className="user">
       <img
         src={
           "https://images.unsplash.com/photo-1628563694622-5a76957fd09c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8aW5zdGFncmFtJTIwcHJvZmlsZXxlbnwwfHwwfHw%3D&w=1000&q=80"
@@ -23,8 +24,12 @@ const UserCard = ({
       </Link>
       <span className="user__relationship">Stranger</span>
       <span>{job}</span>
-    </UserCardStyled>
+      <div className="user__buttons">
+        <Button text="Add to friend" classCss="user__buttons-friend" />
+        <Button text="Add to enemy" classCss="user__buttons-enemy" />
+      </div>
+    </UserDetailsStyled>
   );
 };
 
-export default UserCard;
+export default UserDetails;

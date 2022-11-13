@@ -18,7 +18,6 @@ const useUser = () => {
           "Content-type": "application/json; charset=UTF-8",
         },
       });
-      dispatch(openModalActionCreator("Welcome!"));
     } catch {
       dispatch(openModalActionCreator("Something went wrong!"));
     }
@@ -49,7 +48,7 @@ const useUser = () => {
         })
       );
       localStorage.setItem("token", token);
-      dispatch(openModalActionCreator("Welcome!"));
+      return userLogged;
     } catch {
       dispatch(openModalActionCreator("Something went wrong!"));
     }

@@ -6,6 +6,7 @@ export interface UserState extends User {
 
 export interface UsersState {
   list: UserStructure[];
+  profile: UserStructure | null;
 }
 
 export interface UiState {
