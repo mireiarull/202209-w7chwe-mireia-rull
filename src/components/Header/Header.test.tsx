@@ -1,6 +1,5 @@
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import Header from "./Header";
-import { BrowserRouter } from "react-router-dom";
 import { renderWithProviders } from "../../test-utils/renderWithProviders";
 
 describe("Given a Header component", () => {

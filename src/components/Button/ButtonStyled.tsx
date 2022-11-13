@@ -10,10 +10,15 @@ const ButtonStyled = styled.button`
   font-size: 1.25rem;
   font-weight: 600;
   font-family: inherit;
-  &:hover,
   &:focus {
     cursor: pointer;
     background-color: ${(props) => props.theme.featuredColor};
+  }
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.267);
+    color: #fff;
+    transform: translateY(-7px);
   }
 `;
 

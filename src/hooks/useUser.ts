@@ -11,13 +11,18 @@ const useUser = () => {
 
   const registerUser = async (userData: UserRegisterCredentials) => {
     try {
-      await fetch(`${url}/users/register`, {
+      const responseData = await fetch(`${url}/users/register`, {
         method: "POST",
         body: JSON.stringify(userData),
         headers: {
           "Content-type": "application/json; charset=UTF-8",
         },
       });
+
+      const { token } = await responseData.json();
+      localStorage.setItem("token", token);
+
+      return true;
     } catch {
       dispatch(openModalActionCreator("Something went wrong!"));
     }

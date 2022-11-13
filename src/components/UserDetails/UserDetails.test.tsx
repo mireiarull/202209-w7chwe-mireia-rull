@@ -11,6 +11,8 @@ describe("Given a UserDetails component", () => {
         id: "",
         job: "",
         username: "",
+        email: "",
+        password: "",
       };
       const expectedAltText = "Mireia";
 
