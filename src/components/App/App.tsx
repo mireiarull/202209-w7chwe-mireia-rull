@@ -12,7 +12,8 @@ const App = () => {
         <Route path="/" element={<WelcomePage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/main" element={<MainPage />} />
+        <Route path="/home" element={<MainPage />} />
+        <Route path="/my-profile" element={<MainPage />} />
       </Routes>
     </AppStyled>
   );

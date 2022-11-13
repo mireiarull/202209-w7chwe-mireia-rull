@@ -18,7 +18,8 @@ const UserCard = ({
         height="150"
       />
       <h3 className="user__name">{name}</h3>
-      <span>Stranger</span>
+      <span className="user__relationship">Stranger</span>
+      <span>{job}</span>
     </UserCardStyled>
   );
 };

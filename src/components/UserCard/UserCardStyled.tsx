@@ -10,8 +10,10 @@ const UserCardStyled = styled.article`
   margin: 20px 0;
   border-radius: 20px;
   gap: 10px;
+  position: relative;
   .user__name {
     font-size: 1.6rem;
+    margin-top: 10px;
   }
 
   img {
@@ -24,12 +26,14 @@ const UserCardStyled = styled.article`
     border-top-left-radius: 20px;
   }
 
-  span {
+  .user__relationship {
     background-color: #6b3fbe;
     border-radius: 20px;
     padding: 4px 15px;
     color: white;
     font-weight: 400;
+    position: absolute;
+    top: 215px;
   }
 
   @media screen and (min-width: 750px) {
