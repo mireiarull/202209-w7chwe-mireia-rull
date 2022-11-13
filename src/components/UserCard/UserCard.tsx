@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { UserStructure } from "../../types";
 import UserCardStyled from "./UserCardStyled";
 
@@ -17,7 +18,9 @@ const UserCard = ({
         alt={name}
         height="150"
       />
-      <h3 className="user__name">{name}</h3>
+      <Link to={`/profile/${id}`}>
+        <h3 className="user__name">{name}</h3>
+      </Link>
       <span className="user__relationship">Stranger</span>
       <span>{job}</span>
     </UserCardStyled>

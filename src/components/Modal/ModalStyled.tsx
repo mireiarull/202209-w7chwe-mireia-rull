@@ -4,7 +4,7 @@ export const ModalStyled = styled.div`
   position: fixed;
   font-size: 2rem;
   border-radius: 15px;
-  width: 50vw;
+  width: 80vw;
   height: 50vh;
   left: 0;
   right: 0;
@@ -21,6 +21,12 @@ export const ModalStyled = styled.div`
   );
   color: #fff;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  text-align: center;
   align-items: center;
+
+  @media screen and (min-width: 600px) {
+    width: 40vw;
+  }
 `;

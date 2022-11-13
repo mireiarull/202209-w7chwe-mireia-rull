@@ -30,7 +30,6 @@ const useApi = () => {
         },
       });
       const userResultApi = await response.json();
-      debugger;
       dispatch(loadOneUserActionCreator(userResultApi.user));
     },
     [dispatch, token]
