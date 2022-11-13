@@ -11,12 +11,6 @@ export const WelcomePageStyled = styled.div`
   background: linear-gradient(-45deg, #693829, #722241, #45267e, #1c1825);
   height: 100vh;
 
-  h1 {
-    font-family: ${(props) => props.theme.secondaryFont};
-    letter-spacing: 3px;
-    font-size: 3rem;
-  }
-
   .welcome-navigation {
     display: flex;
     flex-direction: column;

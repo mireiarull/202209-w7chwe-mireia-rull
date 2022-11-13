@@ -40,7 +40,7 @@ const LoginForm = (): JSX.Element => {
     loginUser(formDataToSubmit);
 
     if (loggedUser) {
-      navigate("/main");
+      navigate("/home");
     }
   };
 

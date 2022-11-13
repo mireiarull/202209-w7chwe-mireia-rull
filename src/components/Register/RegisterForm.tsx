@@ -42,7 +42,7 @@ const RegisterForm = (): JSX.Element => {
     };
 
     registerUser(formDataToSubmit);
-    navigate("/main");
+    navigate("/home");
   };
 
   return (

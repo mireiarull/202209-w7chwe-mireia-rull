@@ -2,8 +2,6 @@ import styled from "styled-components";
 
 const MainPageStyled = styled.main`
   background-color: #efefef;
-  height: 100vh;
-  width: 100vw;
 
   .logo {
     font-family: ${(props) => props.theme.secondaryFont};
@@ -14,7 +12,7 @@ const MainPageStyled = styled.main`
   }
 
   .count {
-    color: #d543b2;
+    color: #000000;
     font-weight: 600px;
   }
 `;
