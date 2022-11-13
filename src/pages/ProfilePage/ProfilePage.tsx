@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useParams } from "react-router";
 import Header from "../../components/Header/Header";
-import UserCard from "../../components/UserCard/UserCard";
 import UserDetails from "../../components/UserDetails/UserDetails";
 import useApi from "../../hooks/useApi";
 import useToken from "../../hooks/useToken";
