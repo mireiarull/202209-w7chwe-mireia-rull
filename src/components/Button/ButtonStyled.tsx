@@ -21,6 +21,10 @@ const ButtonStyled = styled.button`
     color: #fff;
     transform: translateY(-7px);
   }
+
+  @media (prefers-reduced-motion) {
+    animation: pulse 1s linear infinite both;
+  }
 `;
 
 export default ButtonStyled;

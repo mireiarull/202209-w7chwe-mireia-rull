@@ -6,17 +6,67 @@ import AppStyled from "./AppStyled";
 import MainPage from "../../pages/MainPage/MainPage";
 import ProfilePage from "../../pages/ProfilePage/ProfilePage";
 import EditPage from "../../pages/EditPage/EditPage";
+import { useAppSelector } from "../../redux/hooks";
+import useToken from "../../hooks/useToken";
+import ExitRoute from "../../routes/exitRoute";
+import ProtectedRoute from "../../routes/protectedRoute";
 
 const App = () => {
+  const { getToken } = useToken();
+  const isLogged = useAppSelector((state) => state.user.isLogged);
+  getToken();
+
   return (
     <AppStyled>
       <Routes>
-        <Route path="/" element={<WelcomePage />} />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/home" element={<MainPage />} />
-        <Route path="/profile/:id" element={<ProfilePage />} />
-        <Route path="/update/:id" element={<EditPage />} />
+        <Route
+          path="/"
+          element={
+            <ExitRoute isLogged={isLogged}>
+              <WelcomePage />
+            </ExitRoute>
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            <ExitRoute isLogged={isLogged}>
+              <RegisterPage />
+            </ExitRoute>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <ExitRoute isLogged={isLogged}>
+              <LoginPage />
+            </ExitRoute>
+          }
+        />
+        <Route
+          path="/home"
+          element={
+            <ProtectedRoute isLogged={isLogged}>
+              <MainPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/profile/:id"
+          element={
+            <ProtectedRoute isLogged={isLogged}>
+              <ProfilePage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/update/:id"
+          element={
+            <ProtectedRoute isLogged={isLogged}>
+              <EditPage />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </AppStyled>
   );

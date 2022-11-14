@@ -20,3 +20,4 @@ jobs:
           DEBUG: ${{ secrets.DEBUG }}
           MONGODB_URL: ${{ secrets.MONGODB_URL }}
           JWT_SECRET: ${{secrets.JWT_SECRET}}
+          REACT_APP_API_SOCIAL: ${{ secrets.REACT_APP_API_SOCIAL }}
