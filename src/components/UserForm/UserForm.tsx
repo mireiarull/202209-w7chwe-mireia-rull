@@ -54,7 +54,7 @@ const UserForm = (): JSX.Element => {
       image: formData.image,
       id: myUserId!,
     };
-    console.log(formDataToSubmit);
+
     updateMyUserApi(formDataToSubmit, myUserId!);
     navigate("/home");
   };
@@ -76,20 +76,6 @@ const UserForm = (): JSX.Element => {
                   onChange={handleFormChange}
                   autoComplete="off"
                   value={formData.username || ""}
-                  required
-                />
-              </div>
-              <div className="form__item">
-                <label className="form__label" htmlFor="password">
-                  Password
-                </label>
-                <input
-                  type="password"
-                  name="password"
-                  id="password"
-                  onChange={handleFormChange}
-                  autoComplete="off"
-                  value={formData.password || ""}
                   required
                 />
               </div>
