@@ -56,7 +56,6 @@ const RegisterForm = (): JSX.Element => {
           </label>
           <input
             type="text"
-            name="userName"
             id="username"
             onChange={handleFormChange}
             autoComplete="off"
@@ -69,7 +68,6 @@ const RegisterForm = (): JSX.Element => {
           </label>
           <input
             type="password"
-            name="password"
             id="password"
             onChange={handleFormChange}
             autoComplete="off"
@@ -82,7 +80,6 @@ const RegisterForm = (): JSX.Element => {
           </label>
           <input
             type="text"
-            name="name"
             id="name"
             onChange={handleFormChange}
             autoComplete="off"
@@ -95,7 +92,6 @@ const RegisterForm = (): JSX.Element => {
           </label>
           <input
             type="text"
-            name="email"
             id="email"
             onChange={handleFormChange}
             autoComplete="off"
@@ -108,14 +104,13 @@ const RegisterForm = (): JSX.Element => {
           </label>
           <input
             type="text"
-            name="job"
             id="job"
             onChange={handleFormChange}
             autoComplete="off"
             required
           />
         </div>
-        <Button text="Sign up" action={() => {}}></Button>
+        <Button text="Sign up"></Button>
       </RegisterFormStyled>
     </>
   );

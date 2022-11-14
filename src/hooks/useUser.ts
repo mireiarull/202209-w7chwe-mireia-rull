@@ -15,7 +15,7 @@ const useUser = () => {
         method: "POST",
         body: JSON.stringify(userData),
         headers: {
-          "Content-type": "application/json; charset=UTF-8",
+          "Content-type": "application/json",
         },
       });
 

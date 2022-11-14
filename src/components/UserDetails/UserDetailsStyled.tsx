@@ -81,6 +81,7 @@ const UserDetailsStyled = styled.article`
   .user__buttons-edit {
     position: absolute;
     right: 0px;
+    font-size: 1.75rem;
     background-color: white;
     padding: 5px;
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.267);

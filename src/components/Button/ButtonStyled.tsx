@@ -17,6 +17,7 @@ const ButtonStyled = styled.button`
   &:hover {
     cursor: pointer;
     box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.267);
+    transition: all 0.3s ease 0s;
     color: #fff;
     transform: translateY(-7px);
   }
