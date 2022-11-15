@@ -23,7 +23,7 @@ const useApi = () => {
     });
     const resultApi = await response.json();
 
-    resultApi.users.forEach((user: UserStructure) => {
+    await resultApi.users.forEach((user: UserStructure) => {
       const relationship = resultApi.usersRelations.find(
         (relation: Relation) =>
           relation.user2 === user.id || relation.user1 === user.id
@@ -99,7 +99,7 @@ const useApi = () => {
       });
       const resultApi = await response.json();
 
-      resultApi.users.forEach((user: UserStructure) => {
+      await resultApi.users.forEach((user: UserStructure) => {
         const relationship = resultApi.usersRelations.find(
           (relation: Relation) =>
             relation.user2 === user.id || relation.user1 === user.id
@@ -109,7 +109,7 @@ const useApi = () => {
         }
       });
 
-      const friends = resultApi.users.filter(
+      const friends = await resultApi.users.filter(
         (user: UserStructure) => user.relation
       );
 
