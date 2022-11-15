@@ -21,8 +21,24 @@ const useApi = () => {
         Authorization: `Bearer ${token}`,
       },
     });
-    const usersResultApi = await response.json();
-    dispatch(loadAllUsersActionCreator(usersResultApi.users));
+    const resultApi = await response.json();
+
+    interface Relation {
+      user1: string;
+      user2: string;
+      relation: string;
+    }
+
+    resultApi.users.forEach((user: UserStructure & { _id: string }) => {
+      const relationship = resultApi.usersRelations.find(
+        (relation: Relation) => relation.user2 === user.id
+      );
+      if (relationship) {
+        user.relation = relationship.relation;
+      }
+    });
+
+    dispatch(loadAllUsersActionCreator(resultApi.users));
   }, [dispatch, token]);
 
   const loadUserByIdApi = useCallback(

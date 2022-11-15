@@ -46,7 +46,7 @@ const UserDetails = ({
         <span className="user__relationship">Friend</span>
       )}
       {relation === "enemies" && (
-        <span className="user__relationship">Enemies</span>
+        <span className="user__relationship">Enemy</span>
       )}
       {!relation && <span className="user__relationship">Stranger</span>}
       <span>Job: {job}</span>

@@ -7,7 +7,7 @@ interface UserCardProps {
 }
 
 const UserCard = ({
-  user: { job, name, username, id },
+  user: { job, name, username, id, relation },
 }: UserCardProps): JSX.Element => {
   return (
     <UserCardStyled className="user">
@@ -21,7 +21,13 @@ const UserCard = ({
       <Link to={`/profile/${id}`}>
         <h3 className="user__name">{name}</h3>
       </Link>
-      <span className="user__relationship">Stranger</span>
+      {relation === "friends" && (
+        <span className="user__relationship">Friend</span>
+      )}
+      {relation === "enemies" && (
+        <span className="user__relationship">Enemy</span>
+      )}
+      {!relation && <span className="user__relationship">Stranger</span>}
       <span>{job}</span>
     </UserCardStyled>
   );

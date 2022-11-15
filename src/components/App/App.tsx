@@ -8,8 +8,8 @@ import ProfilePage from "../../pages/ProfilePage/ProfilePage";
 import EditPage from "../../pages/EditPage/EditPage";
 import { useAppSelector } from "../../redux/hooks";
 import useToken from "../../hooks/useToken";
-import ExitRoute from "../../routes/exitRoute";
-import ProtectedRoute from "../../routes/protectedRoute";
+import ExitRoute from "../ExitRoute/ExitRoute";
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 
 const App = () => {
   const { getToken } = useToken();
