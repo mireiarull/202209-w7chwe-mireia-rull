@@ -6,13 +6,24 @@ const UserCardListStyled = styled.ul`
   justify-content: center;
   gap: 10px;
   margin-top: 50px;
-  @media screen and (min-width: 600px) {
-    display: grid;
-    justify-items: center;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-columns: repeat(auto-fill, 200px);
-    gap: 30px;
-    padding: 0 30px;
+
+  .list-filter {
+    display: flex;
+    flex-direction: column;
+    @media screen and (min-width: 600px) {
+      flex-direction: row;
+    }
+  }
+
+  section {
+    @media screen and (min-width: 600px) {
+      display: grid;
+      justify-items: center;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: repeat(auto-fill, 200px);
+      gap: 30px;
+      padding: 0 30px;
+    }
   }
 `;
 
