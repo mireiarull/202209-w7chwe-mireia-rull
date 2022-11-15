@@ -23,15 +23,10 @@ const useApi = () => {
     });
     const resultApi = await response.json();
 
-    interface Relation {
-      user1: string;
-      user2: string;
-      relation: string;
-    }
-
-    resultApi.users.forEach((user: UserStructure & { _id: string }) => {
+    resultApi.users.forEach((user: UserStructure) => {
       const relationship = resultApi.usersRelations.find(
-        (relation: Relation) => relation.user2 === user.id
+        (relation: Relation) =>
+          relation.user2 === user.id || relation.user1 === user.id
       );
       if (relationship) {
         user.relation = relationship.relation;
@@ -95,11 +90,40 @@ const useApi = () => {
     [dispatch]
   );
 
+  const loadRelations = useCallback(
+    async (relation: "friends" | "enemies") => {
+      const response = await fetch(`${url}/users/${relation}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      const resultApi = await response.json();
+
+      resultApi.users.forEach((user: UserStructure) => {
+        const relationship = resultApi.usersRelations.find(
+          (relation: Relation) =>
+            relation.user2 === user.id || relation.user1 === user.id
+        );
+        if (relationship) {
+          user.relation = relationship.relation;
+        }
+      });
+
+      const friends = resultApi.users.filter(
+        (user: UserStructure) => user.relation
+      );
+
+      dispatch(loadAllUsersActionCreator(friends));
+    },
+    [dispatch, token]
+  );
+
   return {
     loadAllUsersApi,
     loadUserByIdApi,
     updateMyUserApi,
     addRelationship,
+    loadRelations,
   };
 };
 
