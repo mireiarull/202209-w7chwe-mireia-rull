@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useCallback } from "react";
 import {
   addRelationshipActionCreator,
@@ -51,16 +52,14 @@ const useApi = () => {
 
   const updateMyUserApi = useCallback(
     async (user: UserStructure, id: string) => {
-      const response = await fetch(`${url}/users/update`, {
-        method: "PUT",
-        body: JSON.stringify(user),
+      const response = await axios.put(`${url}/users/update`, user, {
         headers: {
-          "Content-type": "application/json; charset=UTF-8",
+          "Content-Type": "multipart/form-data; application/json",
           Authorization: `Bearer ${token}`,
         },
       });
 
-      const userResultApi = await response.json();
+      const userResultApi = await response.data;
 
       dispatch(updateOneUserActionCreator(userResultApi));
     },

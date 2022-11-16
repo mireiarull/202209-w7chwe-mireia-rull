@@ -30,6 +30,7 @@ export interface UserStructure {
   residence?: string;
   interest?: string;
   image?: string;
+  backupImage?: string;
   password: string;
   email: string;
   relation?: string;

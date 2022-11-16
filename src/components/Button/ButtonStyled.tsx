@@ -20,10 +20,10 @@ const ButtonStyled = styled.button`
     color: #fff;
     transition: all 0.3s ease 0s;
     transform: translateY(-7px);
-  }
 
-  @media (prefers-reduced-motion) {
-    transform: none;
+    @media (prefers-reduced-motion) {
+      transform: none;
+    }
   }
 `;
 

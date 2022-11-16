@@ -30,9 +30,13 @@ const UserForm = (): JSX.Element => {
     if (!formData) {
       return;
     }
+
     setFormData({
       ...formData,
-      [event.target.id]: event.target.value,
+      [event.target.id]:
+        event.target.id === "image"
+          ? (event.target as HTMLInputElement).files![0]
+          : event.target.value,
     });
   };
 
@@ -158,7 +162,6 @@ const UserForm = (): JSX.Element => {
                   id="image"
                   onChange={handleFormChange}
                   autoComplete="off"
-                  value={formData.image || ""}
                 />
               </div>
             </div>

@@ -33,6 +33,12 @@ const UserCardStyled = styled.article`
     font-weight: 400;
     position: absolute;
     top: 215px;
+    &--friend {
+      background-color: #d544ad;
+    }
+    &--enemy {
+      background-color: #220950;
+    }
   }
 
   @media screen and (min-width: 750px) {
