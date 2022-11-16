@@ -54,7 +54,7 @@ const useApi = () => {
     async (user: UserStructure, id: string) => {
       const response = await axios.put(`${url}/users/update`, user, {
         headers: {
-          "Content-Type": "multipart/form-data; application/json",
+          "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${token}`,
         },
       });
