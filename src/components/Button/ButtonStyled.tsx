@@ -10,6 +10,7 @@ const ButtonStyled = styled.button`
   font-size: 1.25rem;
   font-weight: 600;
   font-family: inherit;
+  transition: all 0.3s ease 0s;
   &:focus {
     cursor: pointer;
     background-color: ${(props) => props.theme.featuredColor};
@@ -18,7 +19,6 @@ const ButtonStyled = styled.button`
     cursor: pointer;
     box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.267);
     color: #fff;
-    transition: all 0.3s ease 0s;
     transform: translateY(-7px);
 
     @media (prefers-reduced-motion) {
