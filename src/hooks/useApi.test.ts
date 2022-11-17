@@ -1,5 +1,4 @@
 import { renderHook } from "@testing-library/react";
-import mockGetResponse from "../mocks/mockGetResponse";
 import { store } from "../redux/store";
 import ProviderWrapper from "../test-utils/ProviderWrapper";
 import useApi from "./useApi";

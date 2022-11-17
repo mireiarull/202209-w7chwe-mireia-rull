@@ -1,5 +1,4 @@
 import { screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 import mockUiState from "../../mocks/mockUiState";
 import mockUsersState from "../../mocks/mockUsersState";
 import mockUserStateLogged from "../../mocks/mockUserStateLogged";
