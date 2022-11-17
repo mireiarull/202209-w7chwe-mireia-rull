@@ -16,7 +16,7 @@ const UserDetails = ({
 
   const { addRelationship } = useApi();
 
-  const handleClick = (relation: "friends" | "enemies") => {
+  const handleClick = (relation: "friends" | "enemies" | "strangers") => {
     const newRelation: Relation = {
       user1: loggedUserId,
       user2: id,
@@ -32,7 +32,16 @@ const UserDetails = ({
           <Button text="✏️" classCss="user__buttons-edit" />
         </Link>
       )}
-      <img src={backupImage} alt={name} height="150" />
+      {backupImage && <img src={backupImage} alt={name} height="150" />}
+      {!backupImage && (
+        <img
+          src={
+            "https://images.unsplash.com/photo-1628563694622-5a76957fd09c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8aW5zdGFncmFtJTIwcHJvZmlsZXxlbnwwfHwwfHw%3D&w=1000&q=80"
+          }
+          alt={name}
+          height="150"
+        />
+      )}
       <Link to={`/profile/${id}`}>
         <h3 className="user__name">{name}</h3>
       </Link>
@@ -42,23 +51,40 @@ const UserDetails = ({
       {relation === "enemies" && (
         <span className="user__relationship">Enemy</span>
       )}
-      {!relation && <span className="user__relationship">Stranger</span>}
+      {(relation === "strangers" || !relation) && (
+        <span className="user__relationship">Stranger</span>
+      )}
       <span>Job: {job}</span>
       <span>Location: {residence}</span>
       <span>Hobbies: {interest}</span>
       <div className="user__buttons">
-        {loggedUserId !== id && (
+        {loggedUserId !== id && relation !== "friends" && (
           <Button
             text="Add to friend"
             classCss="user__buttons-friend"
             action={() => handleClick("friends")}
           />
         )}
-        {loggedUserId !== id && (
+        {loggedUserId !== id && relation === "friends" && (
+          <Button
+            text="Remove from friend"
+            classCss="user__buttons-friend"
+            action={() => handleClick("strangers")}
+          />
+        )}
+
+        {loggedUserId !== id && relation !== "enemies" && (
           <Button
             text="Add to enemy"
             classCss="user__buttons-enemy"
             action={() => handleClick("enemies")}
+          />
+        )}
+        {loggedUserId !== id && relation === "enemies" && (
+          <Button
+            text="Remove from enemy"
+            classCss="user__buttons-enemy"
+            action={() => handleClick("strangers")}
           />
         )}
       </div>
