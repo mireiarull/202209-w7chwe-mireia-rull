@@ -4,7 +4,6 @@ import { useParams } from "react-router";
 import { UserFormStyled } from "./UserFormStyled";
 import useApi from "../../hooks/useApi";
 import { useAppSelector } from "../../redux/hooks";
-import { UserStructure } from "../../types";
 
 const UserForm = (): JSX.Element => {
   const { updateMyUserApi, loadUserByIdApi } = useApi();
