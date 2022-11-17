@@ -8,6 +8,7 @@ export const mockUsersList: UserStructure[] = [
     id: "1",
     job: "",
     name: "Admin",
+    relation: "friend",
   },
   {
     username: "mireia",

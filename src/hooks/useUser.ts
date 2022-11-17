@@ -48,8 +48,7 @@ const useUser = () => {
       dispatch(
         loginUserActionCreator({
           ...userLogged,
-          username: userData.username,
-          token: token,
+          token,
         })
       );
       localStorage.setItem("token", token);

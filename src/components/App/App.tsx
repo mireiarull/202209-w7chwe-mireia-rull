@@ -10,11 +10,15 @@ import { useAppSelector } from "../../redux/hooks";
 import useToken from "../../hooks/useToken";
 import ExitRoute from "../ExitRoute/ExitRoute";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
+import { useEffect } from "react";
 
 const App = () => {
   const { getToken } = useToken();
   const isLogged = useAppSelector((state) => state.user.isLogged);
-  getToken();
+
+  useEffect(() => {
+    getToken();
+  });
 
   return (
     <AppStyled>
