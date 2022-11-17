@@ -6,7 +6,7 @@ const decodeToken = (token: string) => {
 
   return {
     id: jwtPayload.id,
-    userName: jwtPayload.username,
+    username: jwtPayload.username,
     email: jwtPayload.email,
   };
 };
