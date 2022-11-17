@@ -35,7 +35,7 @@ const UserCard = ({
           Enemy
         </span>
       )}
-      {!relation && (
+      {(relation === "strangers" || !relation) && (
         <span className="user__relationship user__relationship">Stranger</span>
       )}
       <span>{job}</span>

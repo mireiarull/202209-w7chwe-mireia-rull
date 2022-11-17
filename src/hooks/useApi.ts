@@ -90,7 +90,7 @@ const useApi = () => {
   );
 
   const loadRelations = useCallback(
-    async (relation: "friends" | "enemies") => {
+    async (relation: "friends" | "enemies" | "strangers") => {
       const response = await fetch(`${url}/users/${relation}`, {
         headers: {
           Authorization: `Bearer ${token}`,
