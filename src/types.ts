@@ -29,7 +29,7 @@ export interface UserStructure {
   id: string;
   residence?: string;
   interest?: string;
-  image?: string;
+  image?: File;
   backupImage?: string;
   password: string;
   email: string;

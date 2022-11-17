@@ -4,6 +4,7 @@ import { useParams } from "react-router";
 import { UserFormStyled } from "./UserFormStyled";
 import useApi from "../../hooks/useApi";
 import { useAppSelector } from "../../redux/hooks";
+import { UserStructure } from "../../types";
 
 const UserForm = (): JSX.Element => {
   const { updateMyUserApi, loadUserByIdApi } = useApi();
@@ -59,7 +60,6 @@ const UserForm = (): JSX.Element => {
     };
 
     updateMyUserApi(formDataToSubmit, myUserId!);
-    // navigate("/home");
   };
 
   return (
@@ -166,6 +166,14 @@ const UserForm = (): JSX.Element => {
             </div>
           </div>
           <Button text="Update" action={() => {}}></Button>
+          {formData.image?.name && (
+            <img
+              src={URL.createObjectURL(formData.image)}
+              alt="Your avatar"
+              className="edit-profile__icon"
+              height={200}
+            />
+          )}
         </UserFormStyled>
       )}
     </>
