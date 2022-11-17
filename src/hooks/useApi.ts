@@ -1,5 +1,7 @@
 import axios from "axios";
 import { useCallback } from "react";
+import { useNavigate } from "react-router";
+import { openModalActionCreator } from "../redux/features/uiSlice";
 import {
   addRelationshipActionCreator,
   loadAllUsersActionCreator,
@@ -13,6 +15,7 @@ const url = process.env.REACT_APP_API_SOCIAL!;
 
 const useApi = () => {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const token = localStorage.getItem("token");
 
@@ -52,18 +55,24 @@ const useApi = () => {
 
   const updateMyUserApi = useCallback(
     async (user: UserStructure, id: string) => {
-      const response = await axios.put(`${url}/users/update`, user, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      try {
+        const response = await axios.put(`${url}/users/update`, user, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            Authorization: `Bearer ${token}`,
+          },
+        });
 
-      const userResultApi = await response.data;
+        const userResultApi = await response.data;
 
-      dispatch(updateOneUserActionCreator(userResultApi));
+        dispatch(updateOneUserActionCreator(userResultApi));
+        dispatch(openModalActionCreator("User updated!"));
+        navigate("/home");
+      } catch {
+        dispatch(openModalActionCreator("Something went wrong!"));
+      }
     },
-    [dispatch, token]
+    [dispatch, navigate, token]
   );
 
   const addRelationship = useCallback(

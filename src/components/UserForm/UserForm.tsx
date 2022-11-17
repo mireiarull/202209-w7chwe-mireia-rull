@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
 import Button from "../Button/Button";
-import { useNavigate, useParams } from "react-router";
+import { useParams } from "react-router";
 import { UserFormStyled } from "./UserFormStyled";
 import useApi from "../../hooks/useApi";
 import { useAppSelector } from "../../redux/hooks";
 
 const UserForm = (): JSX.Element => {
   const { updateMyUserApi, loadUserByIdApi } = useApi();
-  const navigate = useNavigate();
   const myUserInfo = useAppSelector(({ users }) => users.profile);
 
   const { id: myUserId } = useParams<"id">();
@@ -60,7 +59,7 @@ const UserForm = (): JSX.Element => {
     };
 
     updateMyUserApi(formDataToSubmit, myUserId!);
-    navigate("/home");
+    // navigate("/home");
   };
 
   return (
